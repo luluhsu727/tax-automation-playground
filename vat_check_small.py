@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -63,6 +64,8 @@ def build_vat_tables(input_csv: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 def main() -> None:
+    print("Current working directory:", os.getcwd())
+
     parser = argparse.ArgumentParser(description="VAT reconciliation for EU transactions.")
     parser.add_argument(
         "--input",
