@@ -1,0 +1,5 @@
+-r requirements.txt
+flake8>=7.0
+mypy>=1.10
+pytest>=8.0
+pandas-stubs>=2.0
