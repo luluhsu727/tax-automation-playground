@@ -25,43 +25,54 @@ def process_transactions(input_path: Path, output_path: Path) -> None:
             "vat_rate",
             "expected_vat",
             "vat_difference",
+            "variance",
             "error_flag",
             "error_reason",
         ]
 
+        processed_rows = []
+
+        for row in reader:
+            country = (row.get("country") or "").strip().upper()
+            vat_rate = VAT_RATES.get(country, 0.0)
+
+            revenue = float(row["revenue"])
+            vat_collected = float(row["vat_collected"])
+            expected_vat = revenue * vat_rate
+            vat_difference = expected_vat - vat_collected
+            variance = abs(vat_difference)
+
+            unknown_country = country not in VAT_RATES
+            diff_exceeds_threshold = variance > 1
+            error_flag = unknown_country or diff_exceeds_threshold
+
+            if unknown_country:
+                error_reason = "unknown_country"
+            elif diff_exceeds_threshold:
+                error_reason = "vat_mismatch"
+            else:
+                error_reason = ""
+
+            row.update(
+                {
+                    "revenue": f"{revenue:.2f}",
+                    "vat_collected": f"{vat_collected:.2f}",
+                    "vat_rate": f"{vat_rate:.2f}",
+                    "expected_vat": f"{expected_vat:.2f}",
+                    "vat_difference": f"{vat_difference:.2f}",
+                    "variance": f"{variance:.2f}",
+                    "error_flag": str(error_flag),
+                    "error_reason": error_reason,
+                }
+            )
+            processed_rows.append(row)
+
+        processed_rows.sort(key=lambda r: float(r["variance"]), reverse=True)
+
         with output_path.open("w", newline="", encoding="utf-8") as outfile:
             writer = csv.DictWriter(outfile, fieldnames=output_fields)
             writer.writeheader()
-
-            for row in reader:
-                country = (row.get("country") or "").strip().upper()
-                vat_rate = VAT_RATES.get(country, 0.0)
-
-                revenue = float(row["revenue"])
-                vat_collected = float(row["vat_collected"])
-                expected_vat = revenue * vat_rate
-                vat_difference = expected_vat - vat_collected
-
-                unknown_country = country not in VAT_RATES
-                diff_exceeds_threshold = abs(vat_difference) > 1
-                error_flag = unknown_country or diff_exceeds_threshold
-
-                if unknown_country:
-                    error_reason = "unknown_country"
-                elif diff_exceeds_threshold:
-                    error_reason = "vat_mismatch"
-                else:
-                    error_reason = ""
-
-                row.update(
-                    {
-                        "vat_rate": f"{vat_rate:.2f}",
-                        "expected_vat": f"{expected_vat:.2f}",
-                        "vat_difference": f"{vat_difference:.2f}",
-                        "error_flag": str(error_flag),
-                        "error_reason": error_reason,
-                    }
-                )
+            for row in processed_rows:
                 writer.writerow(row)
 
 
