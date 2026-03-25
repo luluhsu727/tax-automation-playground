@@ -1,0 +1,21 @@
+[project]
+name = "tax-automation-playground"
+version = "0.1.0"
+description = "VAT payable calculation utilities by jurisdiction"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+vat-payable = "tax_automation.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
