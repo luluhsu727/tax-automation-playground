@@ -195,7 +195,10 @@ def transaction_from_record(record: Mapping[str, Any]) -> Transaction:
     if not jurisdiction:
         raise VatComputationError("Record is missing a non-empty 'jurisdiction'.")
 
-    transaction_type = record.get("transaction_type", record.get("type", SALE))
+    transaction_type = _normalize_transaction_type(
+        record.get("transaction_type", record.get("type", SALE)),
+        required=True,
+    )
     vat_amount = calculate_transaction_vat(record)
     taxable = _to_bool(record.get("taxable", True))
 
