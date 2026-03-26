@@ -1,5 +1,6 @@
 import json
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -64,7 +65,7 @@ class VatPayableTests(unittest.TestCase):
             csv_path.write_text(csv_content, encoding="utf-8")
 
             completed = subprocess.run(
-                ["python", "vat_payable.py", str(csv_path), "--json"],
+                [sys.executable, "vat_payable.py", str(csv_path), "--json"],
                 cwd=Path(__file__).resolve().parents[1],
                 check=True,
                 capture_output=True,
