@@ -111,10 +111,6 @@ def calculate_transaction_vat(transaction: Mapping[str, Any]) -> Decimal:
             taxable_key = "amount_ex_vat"
         if taxable_key is None and "amount" in transaction:
             taxable_key = "amount"
-        if taxable_key is None and "amount_ex_vat" in transaction:
-            taxable_key = "amount_ex_vat"
-        if taxable_key is None and "amount_ex_vat" in transaction:
-            taxable_key = "amount_ex_vat"
 
         rate_key = "vat_rate" if "vat_rate" in transaction else None
         if rate_key is None and "tax_rate" in transaction:
