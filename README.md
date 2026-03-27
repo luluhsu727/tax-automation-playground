@@ -29,5 +29,5 @@ The function returns one entry per jurisdiction with:
 ## Run tests
 
 ```bash
-python -m unittest -v
+python3 -m unittest -v
 ```
