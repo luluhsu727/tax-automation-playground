@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tax-automation-playground"
+version = "0.1.0"
+description = "Generate VAT payable totals by jurisdiction."
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
