@@ -1,0 +1,2 @@
+from tests.test_jurisdiction_vat_payable import JurisdictionVatPayableTests
+
