@@ -36,3 +36,12 @@ This command:
 where:
 - `output_vat` is VAT collected on sales.
 - `input_vat` is VAT paid on purchases.
+
+## Run tests
+
+Install dev dependencies and run the test suite:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
+```
