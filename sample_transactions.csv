@@ -1,0 +1,7 @@
+jurisdiction,transaction_type,vat_amount,amount,vat_rate
+SG,sale,10.50,,
+SG,purchase,4.25,,
+DE,sale,20.00,,
+DE,purchase,22.00,,
+FR,sale,,100,0.20
+FR,purchase,,30,0.20
