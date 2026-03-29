@@ -1,0 +1,24 @@
+[
+  {
+    "jurisdiction": "DE",
+    "transaction_type": "sale",
+    "net_amount": 1000,
+    "vat_rate": 0.19
+  },
+  {
+    "jurisdiction": "DE",
+    "transaction_type": "purchase",
+    "net_amount": 300,
+    "vat_rate": 0.19
+  },
+  {
+    "jurisdiction": "FR",
+    "transaction_type": "sale",
+    "vat_amount": 200
+  },
+  {
+    "jurisdiction": "FR",
+    "transaction_type": "purchase",
+    "vat_amount": 250
+  }
+]
