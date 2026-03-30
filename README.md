@@ -23,7 +23,7 @@ Generate VAT to be paid for each jurisdiction from transaction data.
 2. Run:
 
 ```bash
-python vat_payable.py --input input.json
+python3 vat_payable.py --input input.json
 ```
 
 Output:
@@ -41,5 +41,5 @@ Output:
 ## Test
 
 ```bash
-python -m unittest discover -s tests -p "test_*.py" -v
+python3 -m unittest discover -s tests -p "test_*.py" -v
 ```
