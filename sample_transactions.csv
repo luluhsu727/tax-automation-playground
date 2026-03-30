@@ -1,0 +1,9 @@
+jurisdiction,transaction_type,net_amount,vat_rate,vat_amount
+DE,sale,1000,0.19,
+DE,purchase,400,0.19,
+FR,sale,500,0.20,
+FR,purchase,700,0.20,
+ES,sale,1200,0.21,
+ES,purchase,200,0.21,
+IT,sale,1000,,220
+IT,purchase,200,,44
