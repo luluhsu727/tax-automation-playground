@@ -27,17 +27,17 @@ FR,purchase,60,0.20
 ## Run
 
 ```bash
-python vat_payable.py transactions.csv
+python3 vat_payable.py transactions.csv
 ```
 
 To output JSON:
 
 ```bash
-python vat_payable.py transactions.csv --json
+python3 vat_payable.py transactions.csv --json
 ```
 
 ## Test
 
 ```bash
-python -m unittest discover -s tests -p "test_*.py" -v
+python3 -m unittest discover -s tests -p "test_*.py" -v
 ```
