@@ -17,7 +17,7 @@ Each transaction record must include:
 Run from CSV:
 
 ```bash
-python vat_calculator.py transactions.csv --pretty
+python3 vat_calculator.py transactions.csv --pretty
 ```
 
 Expected CSV headers:
@@ -33,5 +33,5 @@ FR,purchase,80,,
 ## Tests
 
 ```bash
-python -m unittest -v
+python3 -m unittest -v
 ```
