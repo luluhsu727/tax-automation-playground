@@ -1,0 +1,17 @@
+{
+  "name": "tax-automation-playground",
+  "version": "1.0.0",
+  "description": "VAT payable aggregation by jurisdiction",
+  "main": "src/vatByJurisdiction.js",
+  "scripts": {
+    "test": "node --test",
+    "vat:report": "node src/cli.js"
+  },
+  "keywords": [
+    "tax",
+    "vat",
+    "jurisdiction"
+  ],
+  "author": "",
+  "license": "MIT"
+}
