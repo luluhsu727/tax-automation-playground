@@ -1,6 +1,7 @@
 from decimal import Decimal
 import json
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -49,7 +50,7 @@ class VatPayableTests(unittest.TestCase):
             tmp_path = tmp.name
 
         proc = subprocess.run(
-            ["python", "vat_payable.py", tmp_path],
+            [sys.executable, "vat_payable.py", tmp_path],
             check=True,
             capture_output=True,
             text=True,

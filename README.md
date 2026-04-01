@@ -16,7 +16,7 @@ Negative totals represent a VAT credit/refund position.
 2. Run:
 
 ```bash
-python vat_payable.py path/to/transactions.json
+python3 vat_payable.py path/to/transactions.json
 ```
 
 Each record must include:
@@ -50,5 +50,5 @@ Example output:
 ## Tests
 
 ```bash
-python -m unittest discover -s tests -p "test_*.py"
+python3 -m unittest discover -s tests -p "test_*.py"
 ```
