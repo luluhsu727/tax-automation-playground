@@ -1,0 +1,6 @@
+[
+  { "jurisdiction": "FR", "type": "sale", "amount": 100, "vat_rate": 20 },
+  { "jurisdiction": "FR", "type": "purchase", "amount": 30, "vat_rate": 20 },
+  { "jurisdiction": "DE", "type": "sale", "vat_amount": 19.0 },
+  { "jurisdiction": "DE", "type": "purchase", "amount": 200, "vat_rate": 19 }
+]
