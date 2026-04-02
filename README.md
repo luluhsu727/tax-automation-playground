@@ -32,7 +32,7 @@ Create a JSON file containing transactions:
 Run:
 
 ```bash
-python vat_payable.py --input transactions.json
+python3 vat_payable.py --input transactions.json
 ```
 
 Output:
@@ -57,5 +57,5 @@ Output:
 ## Run tests
 
 ```bash
-python -m unittest discover -s tests -p "test_*.py" -v
+python3 -m unittest discover -s tests -p "test_*.py" -v
 ```
