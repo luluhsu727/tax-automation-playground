@@ -1,0 +1,4 @@
+__pycache__/
+tests/__pycache__/
+*.pyc
+vat_payable_by_jurisdiction.csv
