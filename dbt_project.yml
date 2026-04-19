@@ -1,0 +1,15 @@
+name: 'vat_project'
+version: '1.0.0'
+
+profile: 'default'
+
+model-paths: ["models"]
+
+models:
+  vat_project:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
